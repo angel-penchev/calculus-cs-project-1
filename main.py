@@ -17,7 +17,7 @@ def main(function, default_start_element):
     label = tk.CTkLabel(frame, text="λ = {}\n".format(start_element))
     label.pack(padx=10, pady=10)
 
-    answer_box = tk.CTkTextbox(frame, text_font=("Roboto", 12))
+    answer_box = tk.CTkTextbox(frame, text_font=("Roboto", 12), state=tk.DISABLED)
 
     set_start_element = tk.CTkFrame(frame)
     set_start_element.pack(padx=10, pady=5, fill=tk.BOTH, expand=False)
