@@ -1,5 +1,6 @@
 import customtkinter
 import customtkinter as tk
+from PIL import Image, ImageTk
 
 from src import validators, commands
 
@@ -14,10 +15,21 @@ def main(function, default_start_element):
     frame = tk.CTkFrame(root)
     frame.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
 
-    label = tk.CTkLabel(frame, text="λ = {}\n".format(start_element))
-    label.pack(padx=10, pady=10)
 
-    answer_box = tk.CTkTextbox(frame, text_font=("Roboto", 12), state=tk.DISABLED)
+    image = Image.open("assets/task_fixed_bg.png")
+    render = ImageTk.PhotoImage(image)
+    label_image = tk.CTkLabel(
+        frame,
+        text=". . .",
+        image=render,
+    )
+    image.image = render
+    label_image.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
+
+    label_start_element = tk.CTkLabel(frame, text="λ = {}\n".format(start_element))
+    label_start_element.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
+
+    answer_box = tk.CTkTextbox(frame, state=tk.DISABLED)
 
     set_start_element = tk.CTkFrame(frame)
     set_start_element.pack(padx=10, pady=5, fill=tk.BOTH, expand=False)
@@ -33,7 +45,7 @@ def main(function, default_start_element):
             answer_box.insert(tk.END, "Невалидна стойност за λ!\n")
             return
 
-        label.configure(text="λ = {}\n".format(start_element))
+        label_start_element.configure(text="λ = {}\n".format(start_element))
 
     set_start_button = tk.CTkButton(
         set_start_element,
