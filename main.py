@@ -9,7 +9,7 @@ def main(function, default_start_element):
     start_element = default_start_element
 
     root = tk.CTk()
-    root.geometry("500x500")
+    root.geometry("700x600")
     root.title("Допълнение към курса по ДИС - Курсов проект №1")
 
     frame = tk.CTkFrame(root)
@@ -63,9 +63,21 @@ def main(function, default_start_element):
         master=find_element,
         text="▶",
         command=lambda: commands.find_element_at_index(function, start_element, find_element_entry.get(), answer_box))
-    find_element_button.pack(padx=5, pady=2, side=tk.RIGHT)
+    find_element_button.pack(padx=5, pady=5, side=tk.RIGHT)
     find_element_entry = tk.CTkEntry(find_element, placeholder_text="n = ?")
     find_element_entry.pack(padx=5, pady=5, side=tk.RIGHT)
+
+    find_first_n_element = tk.CTkFrame(frame)
+    find_first_n_element.pack(padx=10, pady=5, fill=tk.BOTH, expand=False)
+    find_first_n_element_label = tk.CTkLabel(find_first_n_element, text="Намиране на първите n елемента от редицата")
+    find_first_n_element_label.pack(padx=5, pady=5, side=tk.LEFT)
+    find_first_n_entry = tk.CTkEntry(find_first_n_element, placeholder_text="n = ?")
+    find_first_n_element_button = tk.CTkButton(
+        master=find_first_n_element,
+        text="▶",
+        command=lambda: commands.find_first_n_elements(function, start_element, find_first_n_entry.get(), answer_box))
+    find_first_n_element_button.pack(padx=5, pady=5, side=tk.RIGHT)
+    find_first_n_entry.pack(padx=5, pady=5, side=tk.RIGHT)
 
     answer_box.pack(padx=10, pady=5, fill=tk.BOTH, expand=True)
 
