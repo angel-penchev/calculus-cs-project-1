@@ -89,6 +89,18 @@ def main(function, default_start_element):
         command=lambda: commands.find_limit(function, start_element, answer_box))
     find_limit_button.pack(padx=5, pady=5, side=tk.RIGHT)
 
+    plot = tk.CTkFrame(frame)
+    plot.pack(padx=10, pady=5, fill=tk.BOTH, expand=False)
+    plot_label = tk.CTkLabel(plot, text="Графика на редицата до n-тия елемент")
+    plot_label.pack(padx=5, pady=5, side=tk.LEFT)
+    plot_entry = tk.CTkEntry(plot, placeholder_text="n = ?")
+    plot_button = tk.CTkButton(
+        master=plot,
+        text="▶",
+        command=lambda: commands.plot(function, start_element, plot_entry.get(), answer_box))
+    plot_button.pack(padx=5, pady=5, side=tk.RIGHT)
+    plot_entry.pack(padx=5, pady=5, side=tk.RIGHT)
+
     answer_box.pack(padx=10, pady=5, fill=tk.BOTH, expand=True)
 
     root.mainloop()

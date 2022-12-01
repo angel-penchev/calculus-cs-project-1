@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 customtkinter = "*"
 pillow = "*"
+matplotlib = "*"
+numpy = "*"
 
 [dev-packages]
 
