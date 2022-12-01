@@ -79,6 +79,16 @@ def main(function, default_start_element):
     find_first_n_element_button.pack(padx=5, pady=5, side=tk.RIGHT)
     find_first_n_entry.pack(padx=5, pady=5, side=tk.RIGHT)
 
+    find_limit = tk.CTkFrame(frame)
+    find_limit.pack(padx=10, pady=5, fill=tk.BOTH, expand=False)
+    find_limit_label = tk.CTkLabel(find_limit, text="Намиране на границата на редицата")
+    find_limit_label.pack(padx=5, pady=5, side=tk.LEFT)
+    find_limit_button = tk.CTkButton(
+        master=find_limit,
+        text="▶",
+        command=lambda: commands.find_limit(function, start_element, answer_box))
+    find_limit_button.pack(padx=5, pady=5, side=tk.RIGHT)
+
     answer_box.pack(padx=10, pady=5, fill=tk.BOTH, expand=True)
 
     root.mainloop()
